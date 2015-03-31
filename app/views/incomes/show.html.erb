@@ -1,0 +1,22 @@
+<p>
+  Categorie: 
+  <%= @income.group %>
+</p>
+
+<p>
+  Onderwerp: 
+  <%= @income.cost %>
+</p>
+
+<p>
+  Bedrag in euro's: 
+  <%= @income.amount %>
+</p>
+
+<p>
+  Datum van inkomste: 
+  <%= @income.date %>
+</p>
+
+<%= link_to 'Terug', incomes_path, class: "btn btn-primary" %>
+<%= link_to 'Edit', edit_income_path(@income), class: "btn btn-warning" %>

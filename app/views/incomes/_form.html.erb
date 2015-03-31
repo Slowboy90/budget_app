@@ -1,0 +1,53 @@
+<%= form_for @income do |i| %>
+  <% if @income.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@income.errors.count, "error") %>: U heeft een
+        fout gemaakt bij het invullen van de gegevens
+      </h2>
+      <ul>
+        <% @income.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <p>
+      <%= i.label :group, 'Vul hier de categorie in waar het onder valt' %>
+      <%= i.select(:group, options_for_select([['Een','een'],
+                                               ['Twee','twee'], 
+                                               ['Drie','drie']]), {}, { class: "form-control" }) %>
+    </p>
+  </div>
+
+  <div class="form-group">
+    <p>
+      <%= i.label :cost, 'Vul hier het onderwerp in wat het betreft' %>
+      <%= i.text_field :cost, class: "form-control" %>
+    </p>
+  </div>
+
+  <div class="form-group">
+    <p>
+      <%= i.label :amount, 'Vul hier het bedrag in gehele euro\'s 
+                            in waar om het gaat €' %>
+      <%= i.number_field :amount %>
+    </p>
+  </div>
+
+  <div class="form-group">
+    <p>
+      <%= i.label :date, 'Op welke datum is dit bedrag binnen gekomen?' %>
+      <%= i.date_field :date %>
+    </p>
+  </div>
+
+  <div class="form-group">
+    <p>
+      <%= i.submit 'Verstuur!', class: "btn btn-primary" %>
+    </p>
+  </div>
+
+<% end %>

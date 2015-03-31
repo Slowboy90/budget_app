@@ -1,0 +1,27 @@
+Je gehele inkomen onder elkaar
+
+<table>
+  <tr>
+    <th>categorie</th>
+    <th>onderwerp</th>
+    <th>bedrag in euro's</th>
+    <th>datum van inkomen</th>
+  </tr>
+
+  <% @incomes.each do |i| %>
+    <tr>
+      <td><%= i.group %></td>
+      <td><%= i.cost %></td>
+      <td><%= i.amount %></td>
+      <td><%= i.date %></td>
+      <td><%= link_to 'Show', income_path(i), class: "btn btn-primary" %></td>
+      <td><%= link_to 'Edit', edit_income_path(i), class: "btn btn-warning" %></td>
+      <td><%= link_to 'Destroy', income_path(i), class: "btn btn-danger",
+              method: :delete,
+              data: { confirm: 'Are tou sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Nieuw inkomen', new_income_path, class: "btn btn-success" %>
+<%= link_to 'Home', home_index_path, class: "btn btn-primary" %>
