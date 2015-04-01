@@ -1,0 +1,22 @@
+<p>
+  Categorie: 
+  <%= @expense.group %>
+</p>
+
+<p>
+  Onderwerp: 
+  <%= @expense.cost %>
+</p>
+
+<p>
+  Bedrag in euro's: 
+  <%= @expense.amount %>
+</p>
+
+<p>
+  Datum van inkomste: 
+  <%= @expense.date %>
+</p>
+
+<%= link_to 'Terug', expenses_path, class: "btn btn-primary" %>
+<%= link_to 'Edit', edit_expense_path(@expense), class: "btn btn-warning" %>
