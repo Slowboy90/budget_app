@@ -1,12 +1,12 @@
-<%= form_for @income do |i| %>
-  <% if @income.errors.any? %>
+<%= form_for @expense do |e| %>
+  <% if @expense.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@income.errors.count, "error") %>: U heeft een
+        <%= pluralize(@expense.errors.count, "error") %>: U heeft een
         fout gemaakt bij het invullen van de gegevens
       </h2>
       <ul>
-        <% @income.errors.full_messages.each do |msg| %>
+        <% @expense.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
@@ -15,8 +15,8 @@
 
   <div class="form-group">
     <p>
-      <%= i.label :group, 'Vul hier de categorie in waar het onder valt' %>
-      <%= i.select(:group, options_for_select([['Een','een'],
+      <%= e.label :group, 'Vul hier de categorie in waar het onder valt' %>
+      <%= e.select(:group, options_for_select([['Een','een'],
                                                ['Twee','twee'], 
                                                ['Drie','drie']]), {}, { class: "form-control" }) %>
     </p>
@@ -24,24 +24,24 @@
 
   <div class="form-group">
     <p>
-      <%= i.label :cost, 'Vul hier het onderwerp in wat het betreft' %>
-      <%= i.text_field :cost, class: "form-control" %>
+      <%= e.label :cost, 'Vul hier het onderwerp in wat het betreft' %>
+      <%= e.text_field :cost, class: "form-control" %>
     </p>
   </div>
 
   <div class="form-group">
     <p>
-      <%= i.label :amount, 'Vul hier het bedrag in gehele euro\'s 
+      <%= e.label :amount, 'Vul hier het bedrag in gehele euro\'s 
                             in waar om het gaat €' %>
-      <%= i.number_field :amount %>
+      <%= e.number_field :amount %>
     </p>
   </div>
 
   <div class="form-group">
     <p>
-      <%= i.label :date, 'Op welke datum is dit bedrag binnen gekomen?' %>
+      <%= e.label :date, 'Op welke datum is dit bedrag binnen gekomen?' %>
       <div class='input-group date' id='datetimepicker1'>
-        <%= i.date_field :date, class: "form-control", placeholder: 'blaat blaat ->' %>
+        <%= e.date_field :date, class: "form-control", placeholder: 'blaat blaat ->' %>
           <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
           </span>
       </div>
@@ -51,7 +51,7 @@
 
   <div class="form-group">
     <p>
-      <%= i.submit 'Verstuur!', class: "btn btn-primary" %>
+      <%= e.submit 'Verstuur!', class: "btn btn-primary" %>
     </p>
   </div>
 

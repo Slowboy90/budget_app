@@ -1,0 +1,27 @@
+Al je uitgaves onder elkaar
+
+<table>
+  <tr>
+    <th>categorie</th>
+    <th>onderwerp</th>
+    <th>bedrag in euro's</th>
+    <th>datum van inkomen</th>
+  </tr>
+
+  <% @expenses.each do |e| %>
+    <tr>
+      <td><%= e.group %></td>
+      <td><%= e.cost %></td>
+      <td><%= e.amount %></td>
+      <td><%= e.date %></td>
+      <td><%= link_to 'Show', expense_path(e), class: "btn btn-primary" %></td>
+      <td><%= link_to 'Edit', edit_expense_path(e), class: "btn btn-warning" %></td>
+      <td><%= link_to 'Destroy', expense_path(e), class: "btn btn-danger",
+              method: :delete,
+              data: { confirm: 'Are tou sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Nieuwe uitgave', new_expense_path, class: "btn btn-success" %>
+<%= link_to 'Home', home_index_path, class: "btn btn-primary" %>
