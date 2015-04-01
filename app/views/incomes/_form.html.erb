@@ -40,14 +40,27 @@
   <div class="form-group">
     <p>
       <%= i.label :date, 'Op welke datum is dit bedrag binnen gekomen?' %>
-      <%= i.date_field :date %>
+      <div class='input-group date' id='datetimepicker1'>
+        <%= i.date_field :date, class: "form-control", placeholder: 'blaat blaat ->' %>
+          <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+          </span>
+      </div>
     </p>
   </div>
+
 
   <div class="form-group">
     <p>
       <%= i.submit 'Verstuur!', class: "btn btn-primary" %>
     </p>
   </div>
+
+  <script type="text/javascript">
+    $(function () {
+        $('#datetimepicker1').datetimepicker({
+          format: "DD-MM-YYYY"
+        });
+      });
+  </script>
 
 <% end %>
