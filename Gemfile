@@ -51,3 +51,7 @@ source 'https://rails-assets.org' do
 	gem 'rails-assets-bootstrap'
 end
 
+  # Bootstrap date picker
+  gem 'momentjs-rails', '>= 2.9.0'
+  gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
+
